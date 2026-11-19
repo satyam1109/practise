@@ -1,0 +1,467 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyam Singh | Software Engineer</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: var(--white);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 2rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Common Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About */
+        #about p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-weight: 600;
+            color: var(--primary-color);
+            border: 1px solid #e5e7eb;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Experience */
+        .timeline-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .role-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .company-name {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .date-range {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-pill {
+            background-color: #e0e7ff;
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Contact */
+        #contact {
+            text-align: center;
+            background-color: var(--white);
+            border-radius: 20px 20px 0 0;
+            padding-bottom: 5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            .contact-info { flex-direction: column; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Satyam Singh.</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+        <h1>Satyam Singh</h1>
+        <p>Software Engineer specializing in Java & Spring Boot</p>
+        <p style="font-size: 1rem; margin-top: 0.5rem;">3+ Years of Building Scalable Backend Solutions</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </header>
+
+    <!-- About Me -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>
+            I am a results-driven Software Engineer with 3 years of professional experience in designing and developing robust backend architectures. 
+            My core expertise lies in the Java ecosystem, specifically Spring Boot, where I have successfully delivered high-performance microservices 
+            and RESTful APIs for complex enterprise applications. Passionate about clean code, system scalability, and continuous integration.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Core Java (Java 8/11/17)</span>
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">Spring Cloud</span>
+            <span class="skill-tag">RESTful Web Services</span>
+            <span class="skill-tag">Hibernate / JPA</span>
+            <span class="skill-tag">MySQL / PostgreSQL</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">Maven / Gradle</span>
+            <span class="skill-tag">JUnit / Mockito</span>
+            <span class="skill-tag">Docker (Basic)</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="timeline-item">
+            <div class="role-title">Senior Software Engineer</div>
+            <div class="company-name">TechNova Solutions</div>
+            <div class="date-range">Jan 2025 – Present</div>
+            <ul>
+                <li>Leading the development of modular monolith-to-microservices migration for the payment processing platform.</li>
+                <li>Optimized database queries reducing response time by 40% for critical transaction APIs.</li>
+                <li>Mentoring junior developers and conducting code reviews to ensure adherence to best practices.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="role-title">Software Engineer</div>
+            <div class="company-name">DataSphere Systems</div>
+            <div class="date-range">June 2023 – Dec 2024</div>
+            <ul>
+                <li>Developed and maintained multiple REST APIs using Spring Boot for an inventory management system.</li>
+                <li>Implemented security features using Spring Security and JWT authentication.</li>
+                <li>Collaborated with frontend teams to integrate JSON payloads and debug interface issues.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="role-title">Junior Java Developer</div>
+            <div class="company-name">StartUp Inc.</div>
+            <div class="date-range">Aug 2021 – May 2023</div>
+            <ul>
+                <li>Bug fixing and feature enhancement in legacy Java applications.</li>
+                <li>Assisted in creating unit tests using JUnit to increase code coverage.</li>
+                <li>Gained foundational knowledge of the SDLC and Agile methodologies.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">Key Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">E-Commerce Order Service</h3>
+                    <p class="project-desc">
+                        A robust backend service handling order lifecycle management, inventory deduction, and payment gateway integration. Implemented optimistic locking for concurrency control.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Spring Boot</span>
+                        <span class="tech-pill">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Employee Management API</h3>
+                    <p class="project-desc">
+                        CRUD application allowing HR departments to manage employee records, department assignments, and payroll data securely via Role-Based Access Control (RBAC).
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">Spring Security</span>
+                        <span class="tech-pill">H2 Database</span>
+                        <span class="tech-pill">Swagger</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Real-time Notification System</h3>
+                    <p class="project-desc">
+                        Built a notification microservice utilizing Spring WebFlux for reactive non-blocking communication, pushing alerts to users via WebSocket connections.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-pill">WebFlux</span>
+                        <span class="tech-pill">Kafka</span>
+                        <span class="tech-pill">Redis</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>I am currently open to discussing new opportunities and interesting projects.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <a href="mailto:satyam.singh@example.com" class="social-link">satyam.singh@example.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/satyamsingh" class="social-link">linkedIn.com/in/satyamsingh</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/satyamsingh" class="social-link">github.com/satyamsingh</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Satyam Singh. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+```
